@@ -2,15 +2,12 @@
 #by Andrew Vallejos
 #
 # Run command for assignment
-#> source("plot2.R");plot1("household_power_consumption.txt", png = T)
+#> source("plot2.R");plot2("household_power_consumption.txt", png = T)
 
 plot2 <- function(file, png = F){
 	#external function call to read and subset data
 	source("read_data.R")
 	data <- read_data(file)
-	
-	#merges the Date and Time columns into a timestamp column for plotting
-	data$timestamp <- strptime(paste(data$Date, data$Time), "%d/%m/%Y %H:%M:%S")
 	
 	#checks flag to open PNG device
 	#useful for testing to the screen device and then
