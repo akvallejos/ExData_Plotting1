@@ -17,15 +17,19 @@ plot1 <- function(file, png = F){
 		png("plot1.png", bg="transparent")
 	}
 	
-	hist(data$Global_active_power, 
-		main = "Global Active Power",
-		xlab = "Global Active Power (kilowatts)",
-		ylab = "Frequency",
-		col = "red")
+	make_plot1(data)
 	
 	#turns off external device if one was used
 	if(png)
 	{
 		dev.off();
 	}
+}
+
+make_plot1 <- function(data){
+	hist(data$Global_active_power, 
+		main = "Global Active Power",
+		xlab = "Global Active Power (kilowatts)",
+		ylab = "Frequency",
+		col = "red")
 }

@@ -17,6 +17,16 @@ plot3 <- function(file, png = F){
 		png("plot3.png", bg="transparent")
 	}
 
+	make_plot3(data);
+	
+	#turns off external device if one was used
+	if(png)
+	{
+		dev.off();
+	}
+}
+
+make_plot3 <- function(data){
 	plot(data$timestamp,data$Sub_metering_1,
 		type = "l",
 		main = "",
@@ -33,10 +43,4 @@ plot3 <- function(file, png = F){
 	
 	legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
 		col=c("black","red","blue"), lty=1)
-		
-	#turns off external device if one was used
-	if(png)
-	{
-		dev.off();
-	}
 }

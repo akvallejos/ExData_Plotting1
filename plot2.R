@@ -17,15 +17,19 @@ plot2 <- function(file, png = F){
 		png("plot2.png", bg="transparent")
 	}
 
-	plot(data$timestamp,data$Global_active_power,
-		type = "l",
-		main = "",
-		xlab = "",
-		ylab = "Global Active Power (kilowatts)")
+	make_plot2(data)
 	
 	#turns off external device if one was used
 	if(png)
 	{
 		dev.off();
 	}
+}
+
+make_plot2 <- function(data){
+	plot(data$timestamp,data$Global_active_power,
+		type = "l",
+		main = "",
+		xlab = "",
+		ylab = "Global Active Power (kilowatts)")	
 }
